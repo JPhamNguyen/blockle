@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Puzzle fun!</title>
+    <title>Blockle</title>
     <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,6 +28,16 @@
         .bar{
             width:100%;
             overflow: hidden;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        canvas{
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
         }
 
         .bar .bar-button {
@@ -71,18 +81,34 @@
          <input type = "file" name = "file" />
         <button type="submit">Submit</button>
     </form>
-        {% for d in data %}
-            {% if(d == "1") %}
-                <p>Move up</p>
-            {% elif(d == "2") %}
-                <p>Move left</p>
-            {% elif(d == "3") %}
-                <p>Move right</p>
-            {% elif(d == "4") %}
-                <p>Move down/back</p>
-            {% endif %}
-        {% endfor %}
-    <input type="button" id="input" value="Run Code" onclick="running({{data}})">
+    <br>
+        <input type="button" id="input" value="Run Code" onclick="running({{data}})">
+        <br>
+        <br>
+        <table>
+            <tr>
+                <th>Commands</th>
+            </tr>
+            {% for d in data %}
+                {% if(d == "1") %}
+                    <tr>
+                        <td>Move up</td>
+                    </tr>
+                {% elif(d == "2") %}
+                    <tr>
+                        <td>Move left</td>
+                    </tr>
+                {% elif(d == "3") %}
+                    <tr>
+                        <td>Move right</td>
+                    </tr>
+                {% elif(d == "4") %}
+                    <tr>
+                        <td>Move down</td>
+                    </tr>
+                 {% endif %}
+            {% endfor %}
+        </table>
     <br>
     <br>
     <p id="congrats"></p>
@@ -95,7 +121,7 @@
 <body>
 <div class="top-nav">
     <div class="bar white-banner padding-nav nav-box" style="letter-spacing:4px;">
-        <a class="bar-button button" onclick="test.location.href='WelcomePage.html';document.getElementById('Block')">Block Wise</a>
+        <a class="bar-button button" href="http://127.0.0.1:5000/">Blockle</a>
         <div class="right hide-small">
             <a class="bar-button button" href="http://127.0.0.1:5000/puzzle1">Puzzle 1</a>
             <a class="bar-button button" href="http://127.0.0.1:5000/puzzle2">Puzzle 2</a>
