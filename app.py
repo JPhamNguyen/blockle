@@ -133,6 +133,10 @@ def detect_qr_codes(filename):
 
     img = cv2.imread(filename)
 
+    Img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    img = cv2.bitwise_not(img)
+
     qrDecoder = cv2.QRCodeDetector()
 
     retval, decoded_info, points, straight_qrcode = qrDecoder.detectAndDecodeMulti(np.hstack([img, img]))
